@@ -2,7 +2,7 @@ import AnimatedLayout from "../components/AnimatedLayout";
 import { useBreakpoint } from "../Hooks/useBreakpoints";
 import { useState, useEffect } from "react";
 import data from "../assets/data.json";
-import { type Crew } from "../Types";
+import { type CrewData } from "../Types";
 import { AnimatePresence } from "framer-motion";
 const images = import.meta.glob("/src/assets/crew/*.{jpg,png}", {
   eager: true,
@@ -16,7 +16,7 @@ const Crew = () => {
   const [nowData, setNowData] = useState(data.crew[0]);
 
   useEffect(() => {
-    const found = data.crew.find((person: Crew) => person.name === nowPerson);
+    const found = data.crew.find((person: CrewData) => person.name === nowPerson);
     if (found) setNowData(found);
   }, [nowPerson]);
 
@@ -85,7 +85,7 @@ const Crew = () => {
 
           {/* nav */}
           <div className="flex flex-0 flex-row items-start gap-5 mt-2 lg:gap-10">
-            {data.crew.map((person: Crew) => (
+            {data.crew.map((person: CrewData) => (
               <button
                 key={person.name}
                 onClick={() => setNowPerson(person.name)}

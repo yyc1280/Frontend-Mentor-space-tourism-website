@@ -3,7 +3,7 @@ import { useBreakpoint } from "../Hooks/useBreakpoints";
 import AnimatedLayout from "../components/AnimatedLayout";
 import { AnimatePresence } from "framer-motion";
 import data from "../assets/data.json";
-import { type Destination } from "../Types";
+import { type DestinationData } from "../Types";
 const images = import.meta.glob("/src/assets/destination/*.{jpg,png}", {
   eager: true,
   query: "?url",
@@ -19,7 +19,7 @@ const Destination = () => {
 
   useEffect(() => {
     const found = data.destinations.find(
-      (planet: Destination) => planet.name === nowPlanet
+      (planet: DestinationData) => planet.name === nowPlanet
     );
     if (found) setNowData(found);
   }, [nowPlanet]);
@@ -78,7 +78,7 @@ const Destination = () => {
         md:gap-7
         "
           >
-            {data.destinations.map((planet: Destination) => (
+            {data.destinations.map((planet: DestinationData) => (
               <button
                 key={planet.name}
                 onClick={() => setNowPlanet(planet.name)}

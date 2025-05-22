@@ -2,7 +2,7 @@ import AnimatedLayout from "../components/AnimatedLayout";
 import { useBreakpoint } from "../Hooks/useBreakpoints";
 import { useState, useEffect } from "react";
 import data from "../assets/data.json";
-import { type Technology } from "../Types";
+import { type TechnologyData } from "../Types";
 import { AnimatePresence } from "framer-motion";
 const images = import.meta.glob("/src/assets/technology/*.jpg", {
   eager: true,
@@ -17,7 +17,7 @@ const Technology = () => {
 
   useEffect(() => {
     const found = data.technology.find(
-      (tech: Technology) => tech.name === nowTech
+      (tech: TechnologyData) => tech.name === nowTech
     );
     if (found) setNowData(found);
   }, [nowTech]);
@@ -89,7 +89,7 @@ const Technology = () => {
             lg:flex-col
             lg:gap-8
             ">
-              {data.technology.map((tech: Technology, idx: number) => (
+              {data.technology.map((tech: TechnologyData, idx: number) => (
                 <button
                   key={tech.name}
                   onClick={() => setNowTech(tech.name)}
