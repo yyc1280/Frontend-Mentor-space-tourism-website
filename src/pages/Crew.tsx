@@ -14,6 +14,8 @@ const Crew = () => {
 
   const [nowPerson, setNowPerson] = useState(data.crew[0].name);
   const [nowData, setNowData] = useState(data.crew[0]);
+  const bgImg =
+  images[`/src/assets/crew/background-crew-${breakpoint}.jpg`];
 
   useEffect(() => {
     const found = data.crew.find((person: CrewData) => person.name === nowPerson);
@@ -26,7 +28,7 @@ const Crew = () => {
         className="flex min-h-screen min-w-screen w-full bg-cover bg-center flex-col items-center pt-27
          lg:flex-row lg:justify-around lg:items-center"
         style={{
-          backgroundImage: `url('./src/assets/crew/background-crew-${breakpoint}.jpg')`,
+          backgroundImage: `url(${bgImg})`,
         }}
       >
         {/* pc左邊 */}

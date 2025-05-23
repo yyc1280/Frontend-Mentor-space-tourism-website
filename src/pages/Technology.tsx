@@ -15,6 +15,9 @@ const Technology = () => {
   const [nowTech, setNowTech] = useState(data.technology[0].name);
   const [nowData, setNowData] = useState(data.technology[0]);
 
+  const bgImg =
+  images[`/src/assets/technology/background-technology-${breakpoint}.jpg`];
+
   useEffect(() => {
     const found = data.technology.find(
       (tech: TechnologyData) => tech.name === nowTech
@@ -34,7 +37,7 @@ const Technology = () => {
       <div
         className="flex min-h-screen w-full bg-cover bg-center flex-col items-center pt-27"
         style={{
-          backgroundImage: `url('./src/assets/technology/background-technology-${breakpoint}.jpg')`,
+          backgroundImage: `url(${bgImg})`,
         }}
       >
         {/* title */}

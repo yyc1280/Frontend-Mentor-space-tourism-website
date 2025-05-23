@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/shared/logo.svg";
+import hamburger from "../assets/shared/icon-hamburger.svg";
+import close from "../assets/shared/icon-close.svg";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -10,7 +13,7 @@ export default function NavBar() {
       {/* logo */}
       <div className="">
         <img
-          src="./src/assets/shared/logo.svg"
+          src={logo}
           alt="logo"
           className="w-10 m-6 lg:w-12 lg:m-15"
         />
@@ -66,7 +69,7 @@ export default function NavBar() {
         onClick={() => setOpen(true)}
         aria-label="Open menu"
       >
-        <img src="./src/assets/shared/icon-hamburger.svg" alt="hamburger" />
+        <img src={hamburger} alt="hamburger" />
       </button>
 
       {/* mobile menu */}
@@ -91,7 +94,7 @@ export default function NavBar() {
           onClick={() => setOpen(false)}
           aria-label="Close menu"
         >
-          <img src="./src/assets/shared/icon-close.svg" alt="close" />
+          <img src={close} alt="close" />
         </button>
 
         <ul
